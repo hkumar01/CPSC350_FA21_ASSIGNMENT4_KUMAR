@@ -1,0 +1,6 @@
+Original:
+ATTCGAT
+Complement:
+TAAGCTA
+Reverse Complement:
+ATCGAAT

@@ -9,12 +9,13 @@ using namespace std;
 template<class T>
 class ListNode
 {
-  ListNode();
-  ListNode(T d);
-  ~ListNode();
-  T data;
-  ListNode *next;
-  ListNode *prev;
+  public:
+    ListNode();
+    ListNode(T d);
+    ~ListNode();
+    T data;
+    ListNode *next;
+    ListNode *prev;
 };
 
 template<class T>
@@ -30,6 +31,8 @@ ListNode<T>::~ListNode()
 {
   //what else goes here
   next = NULL;
+  prev = NULL;
+  //data = NULL;
 }
 
 template<class T>
@@ -53,9 +56,9 @@ class GenStack
     bool isEmpty();
     int getSize();
     T peek();
-  private:
-    T top;
+
     int size;
+  private:
     ListNode<T> *front;
     ListNode<T> *back;
 };
@@ -72,12 +75,21 @@ template<class T>
 GenStack<T>::~GenStack()
 {
   //destructor
+  ListNode<T> *currNode = front;
+  ListNode<T> *nextNode = NULL;
+
+  while (currNode != NULL)
+  {
+    nextNode = currNode->next;
+    delete currNode;
+    currNode = nextNode;
+  }
 }
 
 template<class T>
 void GenStack<T>::push(T data)
 {
-  ListNode<T> *newNode = new ListNode(data);
+  ListNode<T> *newNode = new ListNode<T>(data);
 
   if (isEmpty())
   {
@@ -131,6 +143,7 @@ bool GenStack<T>::isEmpty()
 template<class T>
 int GenStack<T>::getSize()
 {
+  cout << size << endl;
   return size;
 }
 
