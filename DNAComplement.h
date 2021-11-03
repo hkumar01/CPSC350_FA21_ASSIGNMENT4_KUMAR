@@ -5,6 +5,7 @@
 #include <exception>
 #include <fstream>
 #include <string>
+#include <stdlib.h>
 #include "GenStack.h"
 
 class DNAComplement
@@ -12,6 +13,7 @@ class DNAComplement
   public:
     DNAComplement();
     ~DNAComplement();
+    bool checkSequence(string line);
     string printComplementDNA(string line);
     string pushToStack(string line);
   private:

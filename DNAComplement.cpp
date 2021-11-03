@@ -10,6 +10,27 @@ DNAComplement::~DNAComplement()
   delete DNAstack;
 }
 
+bool DNAComplement::checkSequence(string line)
+{
+  bool check = false;
+  // subtract 1 from string size to remove the newline character that is appended at end of line
+  for (i = 0; i < line.size() - 1; ++i)
+  {
+    if (isalpha(line[i]))
+    {
+      if (line[i] == 'A' || line[i] == 'T' || line[i] == 'G' || line[i] == 'C')
+      {
+        continue;
+      }
+    }
+    else
+    {
+      check = true;
+    }
+  }
+  return check;
+}
+
 string DNAComplement::printComplementDNA(string line)
 {
   string result;
@@ -30,10 +51,6 @@ string DNAComplement::printComplementDNA(string line)
     else if (line[i] == 'C')
     {
       result += "G";
-    }
-    else
-    {
-      throw runtime_error("Character was not a DNA complement.");
     }
   }
   return result;

@@ -20,7 +20,8 @@ int main(int argc, char** argv)
     {
       cout << "RPN" << endl;
       RPNCalc *calculator = new RPNCalc();
-      calculator->prompt();
+      int print = calculator->prompt();
+      cout << print << endl;
       delete calculator;
     }
     else if (strcmp(argv[1], "DNA") == 0)

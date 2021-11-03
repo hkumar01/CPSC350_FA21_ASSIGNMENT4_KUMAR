@@ -15,7 +15,7 @@
     RPNCalc();
     ~RPNCalc();
 
-    void prompt();
+    int prompt();
     int calculation(string calc);
   private:
     GenStack<int> *stack = new GenStack<int>();

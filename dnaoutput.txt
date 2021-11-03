@@ -4,3 +4,11 @@ Complement:
 TAAGCTA
 Reverse Complement:
 ATCGAAT
+Original:
+ATTCGAT
+Complement:
+TAAGCTA
+Reverse Complement:
+ATCGAAT
+Original:
+ATTCGA1

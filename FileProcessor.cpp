@@ -18,7 +18,7 @@ void FileProcessor::processFile()
   inputFile.open(fileName);
   if (!inputFile.is_open())
   {
-    throw runtime_error("Cannot open file.");
+    throw runtime_error("Cannot open file. Exiting.");
   }
 
   outputFile.open("dnaoutput.txt");
@@ -33,21 +33,29 @@ void FileProcessor::processFile()
     cout << lineText << endl;
     outputFile << lineText << endl;
 
-    complement = printComplementDNA(lineText);
+    if (checkSequence(lineText) == true)
+    {
+      throw runtime_error("Invalid DNA character found. Exiting.");
+    }
 
-    cout << "Complement:" << endl;
-    outputFile << "Complement:" << endl;
+    else
+    {
+      complement = printComplementDNA(lineText);
 
-    cout << complement << endl;
-    outputFile << complement << endl;
+      cout << "Complement:" << endl;
+      outputFile << "Complement:" << endl;
 
-    reverseComplement = pushToStack(complement);
+      cout << complement << endl;
+      outputFile << complement << endl;
 
-    cout << "Reverse Complement:" << endl;
-    outputFile << "Reverse Complement:" << endl;
+      reverseComplement = pushToStack(complement);
 
-    cout << reverseComplement << endl;
-    outputFile << reverseComplement << endl;
+      cout << "Reverse Complement:" << endl;
+      outputFile << "Reverse Complement:" << endl;
+
+      cout << reverseComplement << endl;
+      outputFile << reverseComplement << endl;
+    }
   }
   inputFile.close();
   outputFile.close();
