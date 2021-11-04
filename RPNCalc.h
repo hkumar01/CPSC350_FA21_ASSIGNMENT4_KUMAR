@@ -17,8 +17,10 @@
 
     int prompt();
     int calculation(string calc);
+    bool checkNumberOps(string calc);
   private:
     GenStack<int> *stack = new GenStack<int>();
+    bool checkCalc;
  };
 
  #endif
