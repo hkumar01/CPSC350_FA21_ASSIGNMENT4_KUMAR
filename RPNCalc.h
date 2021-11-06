@@ -1,3 +1,11 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
+//RPNCalc class takes math operations in post-fix notation 
+
 #ifndef RPNCALC_H
 #define RPNCALC_H
 

@@ -1,3 +1,11 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
+// Process DNA text file and print output to file 
+
 #ifndef FILEPROCESSOR_H
 #define FILEPROCESSOR_H
 

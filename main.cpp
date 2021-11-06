@@ -1,3 +1,11 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
+// Program start-up and operation takes place in main
+
 #include <iostream>
 #include <string.h>
 #include <exception>

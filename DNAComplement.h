@@ -1,3 +1,11 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
+// handle creating DNA complement and reverse comoplement 
+
 #ifndef DNACOMPLEMENT_H
 #define DNACOMPLEMENT_H
 

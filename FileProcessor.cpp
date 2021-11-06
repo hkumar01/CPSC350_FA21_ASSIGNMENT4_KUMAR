@@ -1,15 +1,26 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
 #include "FileProcessor.h"
 
+// constructor
 FileProcessor::FileProcessor()
 {
 
 }
 
+// destructor
 FileProcessor::~FileProcessor()
 {
 
 }
 
+// processFile() will prompt user for DNA text file
+// will check if DNA sequences from text file are valid, if not throw runtime_error
+// Original DNA sequence, complement sequence, and reverse complement are printed to output text file
 void FileProcessor::processFile()
 {
   cout << "Enter a DNA text file." << endl;
@@ -27,12 +38,16 @@ void FileProcessor::processFile()
   {
     getline(inputFile, lineText);
 
-    cout << "Original:" << endl;
-    outputFile << "Original:" << endl;
+// when file reaches a newline (empty string), exit from loop
+    if (lineText.empty())
+    {
+      break;
+    }
 
-    cout << lineText << endl;
+    outputFile << "Original:" << endl;
     outputFile << lineText << endl;
 
+  // if DNA sequence is invalid then throw runtime_error
     if (checkSequence(lineText) == true)
     {
       throw runtime_error("Invalid DNA character found. Exiting.");
@@ -42,18 +57,12 @@ void FileProcessor::processFile()
     {
       complement = printComplementDNA(lineText);
 
-      cout << "Complement:" << endl;
       outputFile << "Complement:" << endl;
-
-      cout << complement << endl;
       outputFile << complement << endl;
 
       reverseComplement = pushToStack(complement);
 
-      cout << "Reverse Complement:" << endl;
       outputFile << "Reverse Complement:" << endl;
-
-      cout << reverseComplement << endl;
       outputFile << reverseComplement << endl;
     }
   }

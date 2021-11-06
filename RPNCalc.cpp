@@ -1,15 +1,27 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
 #include "RPNCalc.h"
 
+// RPNCalc() is constructor
 RPNCalc::RPNCalc()
 {
 
 }
 
+// ~RPNCalc() is destructor
 RPNCalc::~RPNCalc()
 {
 
 }
 
+// prompt() is called upon RPNCalc program start-up
+// prompts user for post-fix notation calculation
+// checks if calculation is valid, if not throws runtime_error
+// returns answer to calculation as an integer
 int RPNCalc::prompt()
 {
   int returningValue;
@@ -32,6 +44,10 @@ int RPNCalc::prompt()
   return returningValue;
 }
 
+// checkNumberOps() takes a calculation as a string
+// counts number of operands and operators
+// valid equation has one less operator than number of operands
+// returns true or false, depending on if calculation is valid
 bool RPNCalc::checkNumberOps(string calc)
 {
   istringstream inSS(calc);
@@ -66,6 +82,9 @@ bool RPNCalc::checkNumberOps(string calc)
   return checkResult;
 }
 
+// calculation() takes a calculation as a string
+// compute the calculation and return the result as an integer
+// if an invalid character is encountered, program will throw a runtime_error 
 int RPNCalc::calculation(string calc)
 {
    istringstream inSS(calc);
@@ -76,6 +95,7 @@ int RPNCalc::calculation(string calc)
    {
      const char* convert = data.c_str();
      char operand = '.';
+     // if atoi() returns 1 then convert the integer and push to stack
      if (atoi(convert) != 0)
      {
        int element = atoi(convert);
@@ -138,5 +158,4 @@ int RPNCalc::calculation(string calc)
      }
    }
    return stack->pop();
-   return 0;
 }

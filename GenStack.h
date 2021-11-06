@@ -1,3 +1,11 @@
+// Hari Kumar
+// 002352411
+// hkumar@chapman.edu
+// CPSC350-02
+// Assignment 4
+
+//Implementation of template Stack data structure using a doubly-linked list
+
 #ifndef GENSTACK_H
 #define GENSTACK_H
 
@@ -18,6 +26,7 @@ class ListNode
     ListNode *prev;
 };
 
+// constructor
 template<class T>
 ListNode<T>::ListNode()
 {
@@ -26,6 +35,7 @@ ListNode<T>::ListNode()
   prev = NULL;
 }
 
+// destructor
 template<class T>
 ListNode<T>::~ListNode()
 {
@@ -35,6 +45,7 @@ ListNode<T>::~ListNode()
   //data = NULL;
 }
 
+// overloaded constructor
 template<class T>
 ListNode<T>::ListNode(T val)
 {
@@ -63,6 +74,7 @@ class GenStack
     ListNode<T> *back;
 };
 
+// constructor
 template<class T>
 GenStack<T>::GenStack()
 {
@@ -71,10 +83,10 @@ GenStack<T>::GenStack()
   size = 0;
 }
 
+// destructor
 template<class T>
 GenStack<T>::~GenStack()
 {
-  //destructor
   ListNode<T> *currNode = front;
   ListNode<T> *nextNode = NULL;
 
@@ -86,6 +98,7 @@ GenStack<T>::~GenStack()
   }
 }
 
+// push() insert data on top of stack
 template<class T>
 void GenStack<T>::push(T data)
 {
@@ -104,6 +117,8 @@ void GenStack<T>::push(T data)
   ++size;
 }
 
+// pop() will remove and return first element from top of stack
+// if stack is empty then runtime_error is thrown
 template<class T>
 T GenStack<T>::pop()
 {
@@ -134,12 +149,14 @@ T GenStack<T>::pop()
   return data;
 }
 
+// isEmpty() return true if stack has no elements
 template<class T>
 bool GenStack<T>::isEmpty()
 {
   return (size == 0);
 }
 
+// getSize() return size of stack as integer
 template<class T>
 int GenStack<T>::getSize()
 {
@@ -147,6 +164,7 @@ int GenStack<T>::getSize()
   return size;
 }
 
+// peek() will return data of top element in stack, but does not remove from stack
 template<class T>
 T GenStack<T>::peek()
 {
